@@ -1,0 +1,1025 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700;800&display=swap');
+
+
+*{ box-sizing:border-box;margin: 0;
+  padding: 0;
+  // list-style: none;
+  text-decoration: none;}
+html,body {margin:0; padding:0;scroll-behavior: smooth;font-family: 'Noto Sans', sans-serif;}
+ul,li {margin:0; padding:0; list-style:none;}
+a {text-decoration:none;}
+h1,h2,h3,h4,h5,h6,p {margin:0; padding:0;}
+figure{margin:0; padding:0;}
+table{border-collapse: collapse;}
+fieldset{border:none;}
+img{
+  // image-rendering: -moz-crisp-edges; /* firefox */
+  // image-rendering: -o-crisp-edges; /* opera */
+  // image-rendering: -webkit-optimize-contrast; /* chrome(비표준) */
+  // -ms-interpolation-mode: nearest-neighbor;
+  // image-rendering: crisp-edges;
+  // transform: translateZ(0);
+  // backface-visibility: hidden;
+  image-rendering:-webkit-optimize-contrast;
+  transform:translateZ(0);
+  backface-visibility:hidden;
+  -webkit-perspective: 1;
+}
+
+
+button{cursor: pointer;}
+
+/*공통 css*/
+
+$glmint:#00b2a9;
+$glnavy:#052A4A;
+$clwhite : #fff;
+$clblck : #000;
+$textnormal: #2E2F3D;
+$cl2c: #2c2c2c;
+$cl66:#666;
+$cl95 : #959595;
+$clf6: #f6f6f6;
+$clab: #ababab;
+$cl55: #555;
+$cl99: #999;
+$clcc:#ccc;
+$clee:#eee;
+$cldd:#ddd;
+$clee : #eee;
+$clf1:#f1f1f1;
+$clf8:#f8f8f8;
+$point :#2799F9;
+$pointmint: #00B9AD;
+$pointred: #E50012;
+$pointorange: #EC430E;
+$basecolor:#ebf9f7;
+
+.txtc {text-align: center !important;}
+.txtr {text-align: right !important;}
+.ma10 {margin:10px auto !important;}
+.ma20 {margin:20px auto !important;}
+.mr10{margin-right:10px !important;}
+.ml10{margin-left:10px !important;}
+.ml20{margin-left:20px !important;}
+.mt30 {margin-top:30px !important;}
+.mt10 {margin-top:10px !important;}
+.mb20 {margin-bottom:20px !important}
+.w80 {width:80px !important;}
+.w100 {width:100px !important;}
+.w200 {width: 200px !important;}
+
+.width70 {width:70% !important;}
+.width80 {width:80% !important;}
+.width100 {width:100% !important;}
+
+.pa10 {padding:10px 0 !important;}
+.pa20 {padding:20px 0 !important;}
+
+.pre {white-space: pre-line;}
+
+.point{color:$pointred; font-weight: bold;}
+.point-blue{color:$point; font-weight: bold;}
+
+.back_point{background:#ffe6e7; font-weight: bold; padding:0 3px;}
+
+@mixin layout($w,$m,$pa) {
+    width:$w;
+    margin:$m;
+    padding:$pa;
+}
+@mixin display($dis,$jucon,$align) {
+    display:$dis;
+    justify-content:$jucon;
+    align-items: $align;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: -o-flex;
+    -webkit-flex-wrap: wrap;
+    // flex:1;  
+}
+
+//공통
+
+html,body{height:100%;}
+body{
+  text-align: left; 
+  font-size:16px;
+  margin:0 auto;  
+  background:#fff;
+  color:$textnormal;
+  min-width: 360px;
+  max-width: 360px;
+  position: relative;  
+}
+body.menu-open {
+  overflow: hidden;
+  touch-action: none;  /* 모바일에서 터치 스크롤까지 방지 */
+}
+main{
+  @include layout(100%,0 auto,0 10px);    
+  max-width: 360px;
+  img{width: auto; max-width: 100%;}
+}
+
+.h2-title{
+  font-size: 20px;
+  color: $textnormal;
+  padding-bottom: 20px;
+  a:last-child{margin-left: 5px;}
+}
+
+.h3-title{
+  font-size: 18px;
+  color: $textnormal;
+  padding: 10px 0 15px 0;
+  a:last-child{margin-left: 5px;}
+}
+
+
+.maxwidth{
+  width:100%;
+  margin:0 auto;
+  max-width:360px;
+  min-width:auto;
+}
+
+.none{display: none;}
+a{color:$cl55;}
+
+input[type=text]{
+  background: $clwhite;
+  border:1px #ccc solid;  
+  border-radius: 5px;;
+  height:30px;
+  font-size: 16px;
+
+}
+
+
+
+
+.btn{
+  background:$point;
+  border:none;
+  display: inline-block;  
+  margin:10px 0;
+  color:$clf1;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+  height:55px;
+  font-weight:500;
+  width: 100%;
+}
+
+.btn-white{
+  background: $clwhite;
+  color:$cl55;
+  border: 1px solid $clcc;
+}
+.btn_search{background:$glnavy; width:100px; border-radius: 20px; height:30px;}
+.btn_excel{background:$glmint; width:100px; border-radius: 20px; height:30px;}
+
+
+.btn_more{
+  background:$clwhite;
+  border:1px solid $clcc;
+  display: inline-block;
+  width:70%;
+  max-width: 350px;
+  padding:10px 0;
+  margin:20px 0;
+  color:$clcc;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: 300;
+  letter-spacing: .2rem;
+  a{  color:$clab;}
+
+}
+
+
+.btn-2set{
+  @include display(flex,space-between,center);
+  margin:15px auto;
+  >button{width:49%;}
+  
+}
+.btn_1set{
+  @include display(flex,center,center);
+  margin:15px 0;
+  >button{width:100%;}
+}
+
+select{
+  background: #fff;
+  border: 1px #ccc solid;
+  border-radius: 5px;
+  height: 30px;
+  vertical-align: baseline;
+  font-size: 14px;
+}
+
+
+
+.login{
+  @include layout(100%,0 auto,0);    
+  @include display(flex,center,center);  
+  max-width: 320px;
+  text-align: center;
+  position: absolute;
+  top:50%; left:50%;
+  transform: translate(-50%,-50%);
+
+  h2{
+    font-size: 25px;
+    font-weight: 600;
+    img{
+      width:100%; 
+      max-width: 150px; 
+      display: block; 
+      text-align: center;
+      margin:0 auto;
+    }
+  }
+
+  ul.login_user{
+    @include layout(100%,0 auto,0);
+    margin-top: 20px;
+    label{display: block}
+    input, button{width:100%; height:50px;}
+    li{
+      margin: 15px auto;
+    }
+  }
+  ul.login_info{
+    @include display(flex,space-between,center);
+    width: 100%;
+    li{
+      @include display(flex,center,center);
+      &:after{
+        content: '';
+        width:1px;
+        height:20px;
+        background: #ccc;
+        position: absolute;
+        left:50%;
+      }
+      &:last-child{
+        &:after{
+          display: none;
+        }
+      }
+      i{
+      background-image: url(../img/icon_set.png);            
+      background-repeat: no-repeat;
+      display: block;
+      margin: 0 auto;
+      width: 33px;
+      height: 33px;
+      margin-bottom:5px;
+      background-color: $point;
+      border-radius: 50%;
+      }      
+      &:nth-of-type(1){i{background-position: 2px 4px;}}
+      &:nth-of-type(2){i{background-position: -38px 4px;}}
+      div{
+        margin-left: 5px;
+        p{
+        text-align: left;
+        &.title{color:$point; font-weight: bold;}
+      }
+      }
+    }
+
+  }
+
+  
+
+}
+.login_foot{
+  position: absolute;
+  bottom:0;
+  text-align: center;
+  font-size: 13px;
+  padding-top:10px;
+}
+
+
+//공용 
+
+.head{
+  @include display(flex,space-between,center);
+  @include layout(100%,0 auto,0 10px);
+  min-width: 360px;
+  max-width: 360px;
+  position: relative;
+  height:65px;
+  h1{    
+    a{
+      img{width: 100%; max-width: 120px;}
+    }
+  }
+  .menu-btn {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    transition: all .5s ease-in-out;
+    z-index: 99;
+    .menu-btn-burger {
+    width: 100%;
+    height: 2px;
+    background:$cl55;
+    // border-radius: 5px;
+    transition: all .5s ease-in-out;
+      &:before, &:after{
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background: $cl55;
+        transition: all .5s ease-in-out;
+      }
+      &:before{transform: translateY(-8px);}
+      &:after{transform: translateY(8px);}
+      }
+    /* ANIMATION */
+      &.open .menu-btn-burger {
+        transform: translateX(-50px);
+        background: transparent;
+        box-shadow: none;
+      &:before{transform: rotate(45deg) translate(35px, -35px);}
+      &:after{transform: rotate(-45deg) translate(35px, 35px);}
+    }
+    }
+  .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.5); /* 반투명 검정 */
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      z-index: 8; /* 메뉴보다 아래, 버튼보다 위 */
+      &.open {
+        opacity: 1;
+        pointer-events: auto;}
+    }
+  //버거메뉴 오픈
+    .mobile-menu {
+      @include layout(85%,0 auto,10px);
+        max-width: 300px;
+        height: 100vh;
+        background: $clwhite;
+        position: absolute;
+        top: 0;
+        right: 0;            
+        z-index: 9;
+        transform: translateX(100%); /* 화면 밖으로 숨김 */
+        transition: transform 0.8s ease;
+        box-shadow: none;
+        padding-top: 77px;
+        display: none;
+        &.open {
+          transform: translateX(0);   // 화면으로 등장
+          box-shadow: -4px 0 15px rgba(0, 0, 0, 0.2); // 열렸을 때만 그림자
+          display: block
+        }
+        .mobile-menu-info{
+          @include display(flex,space-between,center);
+          flex-wrap: nowrap;
+          li{
+            img{
+                  border-radius: 50%;
+                  width: 100%;
+                  max-width: 80px;
+                  vertical-align: middle;
+                  margin: 0 auto;
+                  border: 1px solid #ccc;                
+            }
+            &.info{
+              margin-left: 10px;
+              word-break: keep-all;
+              p{
+                &:first-child{font-weight: 600; font-size: 16px;}
+                &:last-child{font-size: .8rem;}
+              }
+            }
+          }
+        }//info
+        .mobile-menu-push{
+          border-top: 1px solid $clcc;
+          border-bottom: 1px solid $clcc;
+          padding: 10px 0;
+          margin: 30px 0;
+          h3{color:$clblck}
+          .push-btn{
+            @include layout(100%,10px 0,20px 10px);          
+            border-radius: 10px;
+            background: $clf6;
+              li{
+                @include display(flex,space-between,center);
+                &::after{
+                  content: '';
+                  width:100%;
+                  height: 1px;
+                  background: $clcc;
+                  display: block;
+                  margin: 10px auto;
+                }
+                &:last-child{
+                  &::after{display: none;}
+                }
+                .toggle-slider{
+                  @include display(flex,center,center);
+                .toggle-slider-btn{display: none;}
+                label{
+                  cursor: pointer;
+                  width:65px;
+                  height: 30px;
+                  text-indent: -999em;
+                  background:$cl99;
+                  border-radius: 40px;
+                  position: relative;
+                  transition: 0.5s ease-out;
+                  &:before{
+                        content: "off";
+                        color: #fff;
+                        font-size: 12px;
+                        position: absolute;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        left: auto;
+                        right: 10px; 
+                        text-indent: 0;
+                        z-index: 3;
+                        pointer-events: none;
+                  }
+                  &::after{
+                    content: '';
+                    width:20px;
+                    height: 20px;
+                    background: $clwhite;
+                    position: absolute;
+                    border-radius: 50%;
+                    top:5px; left:5px;
+                  }
+                }
+                .toggle-slider-btn:checked + label{
+                  background: $point;
+                  &::after{
+                    left:40px;
+                  }
+                  &::before{
+                        content: "on";                    
+                        right: auto;
+                        left: 10px; 
+                        text-indent: 0;
+                        z-index: 3;
+                        pointer-events: none;}
+                }
+                }
+              }
+            }
+        }//push
+        .mobile-menu-menu{ 
+          border-bottom: 1px solid $clcc;
+          width: 100%;
+          li{
+            width: 98%;
+            vertical-align: middle;
+            height: 40px;
+            margin-bottom: 30px;
+            font-weight: 400;
+            a{@include display(flex,space-between,center);}
+            i{
+            background-image: url(../img/icon_set.png);            
+            background-repeat: no-repeat;
+            display: inline-block;          
+            width: 35px;
+            height: 35px;                    
+            // vertical-align: bottom;
+            // margin-right: 5px;
+            }      
+            &:nth-of-type(1){i{background-position: 0px -35px;}}          
+            &:nth-of-type(2){i{background-position: -38px -34px;}}
+            &:nth-of-type(3){i{background-position: -84px -34px;}}
+            &:nth-of-type(4){i{background-position: -133px -34px;}}
+          }
+        }
+        .logout{
+          position: absolute;
+          bottom:1%;
+          background:$pointred;
+          color:$clwhite;
+          height: 50px;
+          border: none;
+          width: calc(100% - 20px);
+          border-radius: 10px;
+
+        }
+    }
+  }
+
+.page-wrapper{
+  min-height: calc(100vh - 65px);
+  display: flex;
+  flex-direction: column;
+  main {flex-grow: 1; overflow: hidden;}
+  footer {height: 65px;}
+}
+.navi{
+  @include display(flex,center,center);
+  margin: 20px 0 10px 0;
+  li{margin:0 10px;
+    &.on{
+      background: $point;
+      width:20px;  height:20px;
+      border-radius: 50%;
+      text-align: center;
+      color: $clwhite;
+      a{color: $clwhite;}
+    }
+  }
+}
+
+
+footer{
+  @include layout(100%,0 auto,0);
+  max-width: 360px;
+  position: static;
+  bottom:0;
+  border-top:1px solid $clee;
+  background: $clwhite;
+  ul{
+    @include display(flex,space-between,center);    
+    li{
+      &.on{
+        color:$point;
+        font-weight: bold;
+        p{
+          color:$point;
+          font-weight: bold;
+        }
+      }
+      i{
+      background-image: url(../img/icon_set.png);            
+      background-repeat: no-repeat;
+      display: block;
+      margin: 0 auto;
+      width: 35px;
+      height: 35px;
+      margin-bottom:5px;
+      }      
+      &:nth-of-type(1){i{background-position: 0px -35px;}}
+      &:nth-of-type(1).on{i{background-position: -170px -35px;}}
+      &:nth-of-type(2){i{background-position: -38px -34px;}}
+      &:nth-of-type(2).on{i{background-position: -210px -35px;}}
+      &:nth-of-type(3){i{background-position: -84px -34px;}}
+      &:nth-of-type(3).on{i{background-position: -170px -35px;}}
+      &:nth-of-type(4){i{background-position: -133px -34px;}}
+      &:nth-of-type(4).on{i{background-position: -170px -35px;}}
+    }
+  }
+}
+
+//쿠폰조회
+.cp_search{
+  text-align: center;  
+  button{width:100%;}
+  input.cp_num{
+    border:transparent;
+    border-bottom: 1px solid $clcc;
+    border-radius: 0;
+    width:100%;
+    height:50px;
+    text-align: center;
+    &::placeholder{
+      color:#d9d9d9;
+    }    
+  }
+  .cp_search_select{
+    ul{
+      @include display(flex,space-around,center);
+      @include layout(100%,17px auto,15px);
+      background: #F5F5F5;      
+      border-radius: 5px;
+      position: relative;
+        &::after{
+          content: '';
+          width:1px;
+          height:15px;
+          background: $cl55;
+          display: inline-block;
+          position: absolute;
+          left:50%; top:50%;          
+          transform: translate(-50%,-50%);
+        }
+      li{
+        vertical-align: middle;
+        width: 121px;
+        i{
+          background-image: url(../img/icon_set.png);            
+          background-repeat: no-repeat;
+          display: inline-block;
+          margin: 0 auto;
+          width: 20px;
+          height: 19px;   
+
+        }
+        &:nth-of-type(1){i{background-position: -80px 0px;}}
+        &:nth-of-type(2){i{background-position: -100px 0px;}}
+      }
+    }
+  }
+
+}
+.barcode{
+  @include display(flex,space-around,center);
+  flex-direction: column;
+  background: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  height: 100vh;
+  .barcode_logo{
+    h2{img{width:auto; max-width:150px;}}
+    p{font-size: 1.5rem; color:$clwhite;}
+  }
+  .barcode_ca{
+    width:100%;
+    height:300px;
+    background: white;
+    position: relative;
+    border-radius: 10px;
+    .box {
+      position: relative;
+      width: 100%;
+      height: 100%;      
+      span{
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      border: 2px solid $clblck;          
+      &.tl{
+          top: 3%;
+          left: 3%;
+          border-right: none;
+          border-bottom: none;}
+        &.tr{
+              top: 3%;
+              right: 3%;
+              border-left: none;
+              border-bottom: none;}
+        &.bl{
+            bottom: 3%;
+            left: 3%;
+            border-right: none;
+            border-top: none;}
+        &.br{
+            bottom: 3%;
+            right: 3%;
+            border-left: none;
+            border-top: none;}
+      }
+    }
+  }
+  .barcode_close{
+    cursor: pointer;
+    button{
+      border:1px solid $clwhite;
+      width:44px; height:44px;
+      background: transparent;
+      border-radius: 50%;
+      color: $clwhite;
+    }
+  }
+}
+.voucher{
+  background: $glmint;
+  @include layout(100%,10px auto,17px);
+  border-radius: 5px;
+  .voucher-content{
+    @include layout(100%,0 auto,20px);
+    background: $clwhite;
+    border-radius: 5px;
+  }
+  .voucher-thum{
+    border: 1px solid $clee;
+  }
+  .voucher-title{
+    @include display(flex,space-between,center);
+    padding: 20px 0;
+    border-bottom: 1px solid $clee;
+    p{width:70%; font-weight: 500;}
+    img{width: 28%; border: 1px solid $clee; border-radius: 10px;}
+  }
+  .voucher-info{
+    li{
+      @include display(flex,space-between,flex-start);
+      border-bottom:1px solid $clee;
+      padding: 10px 0;
+      word-break: keep-all;
+      &.boucher-balance{
+        @include display(flex,center,center);
+        background: $pointred;
+        color: $clwhite;
+        border: none;
+        margin: 0 auto;
+      }
+      span{
+        &:first-child{flex-basis: 26%;}
+        &:last-child{flex-basis: 70%; font-weight: 500;}
+      }
+    }
+  }
+
+}
+.voucher-list{
+  margin:20px 0;
+}
+
+.voucher-price{
+  text-align: center;
+  input {width:100%; height:55px; text-align: center; border: 1px solid $clcc;}
+
+}
+
+.accordion, .accordion-2line{
+  .done{color: $point;}
+  .cancel-done{color:$pointorange;}
+  .cancel{
+        background: $pointorange;
+        color: $clwhite;
+        padding: 5px 25px;
+        border-radius: 5px;
+        font-size: 13px;
+        margin-left: 5px;
+        cursor: pointer;
+        a{color: $clwhite;}
+  }
+}
+.accordion {
+  width: 100%;
+  border-top: 1px solid #ccc;
+  .accordion-item {
+      border-bottom: 1px solid #ccc;
+      &:last-child{border-bottom:none;}   
+      span{
+        &.ac-1{flex-basis: 20px;}
+        &.ac-2{flex-basis: calc(40% - 40px);}
+        &.ac-3{flex-basis: 60%; font-weight: 500;}
+      }
+      .accordion-header, .accordion-body div{
+        @include display(flex,space-between,center);
+        font-size: 16px;
+        vertical-align: middle;
+      }
+        .accordion-header {
+            width: 100%;
+            border: none;
+            padding: 15px;
+            text-align: left;
+            cursor: pointer;
+            @include display(flex,space-between,center);
+            background: $clf6;
+            .arrow{
+                transition: transform 0.3s ease;
+                background: $point;
+                width:20px; height:20px;
+                line-height: 20px;
+                color: $clwhite;
+                border-radius: 50%;
+                text-align: center;
+                font-size: 14px;
+              }
+        }//header
+      .accordion-body {
+        display: none;
+        padding:0 15px;
+        >div{margin: 15px auto;}
+        
+      }
+      &.active{
+        .accordion-body {
+          display: block;
+          transition: 0.4s;
+        }
+        .accordion-header .arrow {
+          transform: rotate(180deg);
+        }      
+      }
+    }
+}
+
+.accordion-2line {
+  width: 100%;
+  border-top: 1px solid  $clcc;
+
+  .accordion-2line-item {
+    border-bottom: 1px solid $clcc;
+    .accordion-2line-summary {
+      cursor: pointer;
+      background: #f6f6f6;
+      padding:15px;
+    }
+    .accordion-2line-body {      
+      padding: 0 15px 15px 15px;
+      overflow: hidden;
+      transition: max-height 0.4s ease;      
+      display: none;
+    }
+    .line {
+        @include display(flex,space-between,center);        
+        padding:10px 0;
+        span{
+          &.ac-1{flex-basis: 20px;}
+          &.ac-2{flex-basis: calc(40% - 40px);}
+          &.ac-3{flex-basis: 60%; font-weight: 500;}        
+        }
+        .arrow {
+                transition: transform 0.3s ease;
+                background: $point;
+                width:20px; height:20px;
+                line-height: 20px;
+                color: $clwhite;
+                border-radius: 50%;
+                text-align: center;
+                font-size: 14px;
+        }
+
+      }
+
+    &.open {
+      .accordion-2line-body {
+        display: block;
+      }
+
+      .arrow {
+        transform: rotate(180deg);
+      }
+    }
+  }
+}
+
+//상품조회
+
+.search-date, .check-summary{
+  border-radius: 5px;
+  padding:10px;
+}
+
+.search-date{
+  box-shadow: 2px 0px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  .select-spot{
+    width: 100%;;
+    height:35px;
+    text-align: center;
+  }
+  .search-date-3set{
+    //공용
+    button, input[type="date"]{
+        border: 1px solid $clcc;
+        background: $clwhite;
+        height: 35px;
+        border-radius: 3px;
+        cursor: pointer;
+        color:$textnormal;
+    }
+    >div{
+      @include display(flex,space-between,center);
+      margin: 10px 0;
+      button{
+        width: 32%;
+      }
+    }
+    .day-date{
+      min-width: 45%;
+    }    
+  }
+}
+.check-summary{
+  background: $clf6;
+  margin:20px auto;
+  >ul{
+    li{
+      @include display(flex,flex-start,center);
+      @include layout(100%,5px auto,20px 10px);
+      margin-bottom: 15px;
+      background: $clwhite;      
+      border-radius: 5px;
+      
+      i{
+        background-image: url(../img/icon_set.png);            
+        background-repeat: no-repeat;
+        display: inline-block;
+        margin: 0 auto;
+        width: 50px;
+        height: 50px;                
+        border-radius: 50%;
+      }      
+      &:nth-of-type(1){i{background-color: #52357B; background-position: -119px -88px;}}
+      &:nth-of-type(2){i{background-color: #AE445A; background-position: -291px -88px;}}
+      &:nth-of-type(3){i{background-color: #F39F5A; background-position: -205px -88px;}}
+      &:nth-of-type(4){i{background-color: #5C8374; background-position: -248px -88px;}}
+      .check-summary-txt{
+        width: calc(100% - 70px);
+        font-size: 14px;
+        .summary-point{
+          font-weight: 600;
+          font-size: 1.4rem;
+        }
+      }
+      
+    }
+  }
+}
+
+.search-table{
+  padding:10px 0;
+  margin-bottom:20px;
+  h3{text-align: center;}
+    .search-branch-name{
+      margin: 20px 0;      
+      >dl{
+        @include display(flex,flex-start,center);
+        border: 1px solid $point;               
+        dt{
+          background: $point;          
+          color:$clwhite;
+          padding: 10px 15px;          
+        }
+        dd{margin-left: 5px; font-weight: bold; word-break: keep-all;}
+      }
+    }
+    .table-top{
+      width: 100%;
+      @include display(flex,space-between,center);
+      input[type=search]{
+        position: relative;
+        width:180px;
+        height:35px;
+        border: 1px solid $clcc;
+        text-align: center;
+        border-radius: 5px;
+      }
+      i{position: absolute;}
+    }
+  .table-case{
+      overflow-x: scroll;
+      border: 1px solid #ccc;
+      font-size: 14px;
+      margin: 10px auto;
+      padding: 10px;
+      .table-normal{
+          text-align: center;
+          margin-bottom: 10pnx;
+          thead{
+            background: $point;
+            color: $clwhite;
+            text-align: center;
+          }
+          td{
+            border: 1px solid #ccc;
+            min-width: 100px;
+            max-width: 450px;
+            padding: 10px 5px;
+            word-break:keep-all;
+            &.td-width-small{min-width: 50px;}
+            &.td-width-wide{min-width: 120px;}
+            &.td-width-w200{min-width: 200px;}
+            &.alink{color:$point; font-weight: 600; cursor: pointer; text-decoration: underline;}
+          }
+    }
+  }
+}
+
+
+.statlist-search{
+  margin: 20px auto;
+ .menu{
+  @include display(flex,space-between,center);
+  li{
+    border:1px solid $clcc;
+    padding:5px 12px;
+    border-radius: 30px;
+    &.on{
+      background: $point;
+      border: transparent;
+      a{color: $clwhite;}
+    }
+  }
+ } 
+}
+
+
