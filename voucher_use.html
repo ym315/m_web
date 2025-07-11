@@ -25,7 +25,22 @@
 <body>
     <header></header>
     <div class="page-wrapper">
-        <main class="">            
+        <main>     
+            <div class="popup-wrap open">
+                <div class="overlay"></div>
+                <div class="popup">
+                    <div class="popup-txt">
+                    <i class="success"></i>
+                    <!-- <i class="fail"></i> -->
+                    <p>금액권 <span>15,000</span>원이<br/>
+                        사용되었습니다.</p>
+                    </div>   
+                    <div class="popup-btn">
+                        <button type="button" class="btn popup-ok">확인</button>
+                        <button type="button" class="popup-cancel">취소</button>
+                    </div>             
+                </div>
+            </div>      
             <article>
                 <h2 class="h2-title"><a href="#"><</a><a href="#">쿠폰 조회 인증</a></h2>
             </article>
@@ -194,6 +209,18 @@ $(function () {
     const item = $(this).closest('.accordion-2line-item');
     item.toggleClass('open');
   });
+
+    if ($('.popup-wrap').is(':visible')) {
+    $('body').addClass('menu-open');}
+
+    $('.popup-btn button').on('click', function () {
+        $('.popup-wrap').remove(); 
+        $('body').removeClass('menu-open');
+    });
+
+  
+
+  
 });
 </script>
 
