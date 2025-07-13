@@ -161,7 +161,10 @@ input[type=text]{
 }
 
 
-
+.search-normal{
+  border: $clcc;
+  background: $clwhite;
+}
 
 .btn{
   background:$point;
@@ -182,27 +185,6 @@ input[type=text]{
   color:$cl55;
   border: 1px solid $clcc;
 }
-.btn_search{background:$glnavy; width:100px; border-radius: 20px; height:30px;}
-.btn_excel{background:$glmint; width:100px; border-radius: 20px; height:30px;}
-
-
-.btn_more{
-  background:$clwhite;
-  border:1px solid $clcc;
-  display: inline-block;
-  width:70%;
-  max-width: 350px;
-  padding:10px 0;
-  margin:20px 0;
-  color:$clcc;
-  cursor: pointer;
-  text-transform: uppercase;
-  font-weight: 300;
-  letter-spacing: .2rem;
-  a{  color:$clab;}
-
-}
-
 
 .btn-2set{
   @include display(flex,space-between,center);
@@ -993,7 +975,18 @@ footer{
         text-align: center;
         border-radius: 5px;
       }
-      i{position: absolute;}
+      i{
+        position: absolute;
+        right:5%;
+        background: $point;
+        width: 20px; height:20px;
+        button{
+          color:transparent;
+          background: transparent;
+          border: transparent;
+          width:100%; height:100%;
+        }
+      }
     }
   .table-case{
       overflow-x: scroll;
