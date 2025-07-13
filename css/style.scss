@@ -367,11 +367,11 @@ select{
       left: 0;
       width: 100%;
       height: 100vh;
-      background-color: rgba(0, 0, 0, 0.5); /* 반투명 검정 */
+      background-color: rgba(0, 0, 0, 0.5); 
       opacity: 0;
       pointer-events: none;
       transition: opacity 0.3s ease;
-      z-index: 8; /* 메뉴보다 아래, 버튼보다 위 */
+      z-index: 8;
       &.open {
         opacity: 1;
         pointer-events: auto;}
@@ -380,22 +380,31 @@ select{
     .mobile-menu {
       @include layout(85%,0 auto,10px);
         max-width: 300px;
-        height: 100vh;
+        height: 100dvh;
+        height: calc(var(--vh, 1vh) * 100);
         background: $clwhite;
         position: absolute;
         top: 0;
         right: 0;            
         z-index: 9;
-        transform: translateX(100%); /* 화면 밖으로 숨김 */
+        transform: translateX(100%);
         transition: transform 0.8s ease;
         box-shadow: none;
         padding-top: 77px;
         display: none;
         &.open {
-          transform: translateX(0);   // 화면으로 등장
-          box-shadow: -4px 0 15px rgba(0, 0, 0, 0.2); // 열렸을 때만 그림자
-          display: block
+          display: flex;              
+          flex-direction: column;      
+          transform: translateX(0);
+          box-shadow: -4px 0 15px rgba(0, 0, 0, 0.2);
+
         }
+        .mobile-menu-inner {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            overflow-y: auto;
+          }
         .mobile-menu-info{
           @include display(flex,space-between,center);
           flex-wrap: nowrap;
@@ -519,7 +528,9 @@ select{
           }
         }
         .logout{
-          position: absolute;
+          position: static;
+          margin: 0 auto;
+          margin-top: auto;
           bottom:1%;
           background:$pointred;
           color:$clwhite;
@@ -902,10 +913,19 @@ footer{
       button{
         width: 32%;
       }
+      &.date3{
+        flex-wrap: nowrap;
+        .day-date{
+          flex: 1; /* 나머지 공간을 균등 분할 */
+          min-width: 0; /* 너무 작을 때 깨지지 않도록 */
+        }
+        .day-date-dash{
+          flex: 0 0 5%; /* 고정 너비 5% */
+          text-align: center;
+        }
+      }
     }
-    .day-date{
-      min-width: 45%;
-    }    
+  
   }
 }
 .check-summary{
@@ -928,10 +948,10 @@ footer{
         height: 50px;                
         border-radius: 50%;
       }      
-      &:nth-of-type(1){i{background-color: #52357B; background-position: -119px -88px;}}
-      &:nth-of-type(2){i{background-color: #AE445A; background-position: -291px -88px;}}
-      &:nth-of-type(3){i{background-color: #F39F5A; background-position: -205px -88px;}}
-      &:nth-of-type(4){i{background-color: #5C8374; background-position: -248px -88px;}}
+      &:nth-of-type(1){i{background-color: #52357B; background-position: 8px -156px;}}
+      &:nth-of-type(2){i{background-color: #AE445A; background-position: -163px -156px;}}
+      &:nth-of-type(3){i{background-color: #F39F5A; background-position: -76px -156px;}}
+      &:nth-of-type(4){i{background-color: #5C8374; background-position: -120px -156px;}}
       .check-summary-txt{
         width: calc(100% - 70px);
         font-size: 14px;
@@ -1047,7 +1067,7 @@ footer{
   .popup {
     position: relative;
     background: $clwhite;
-    width: 90%;
+    width: 85%;
     max-width: 360px;
     height: 50vh;
     z-index: 2;
