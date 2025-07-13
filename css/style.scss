@@ -917,7 +917,7 @@ footer{
         flex-wrap: nowrap;
         .day-date{
           flex: 1; /* 나머지 공간을 균등 분할 */
-          min-width: 0; /* 너무 작을 때 깨지지 않도록 */
+          min-width: 35%; /* 너무 작을 때 깨지지 않도록 */
         }
         .day-date-dash{
           flex: 0 0 5%; /* 고정 너비 5% */
