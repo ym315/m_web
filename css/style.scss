@@ -374,6 +374,7 @@ select{
         box-shadow: none;
         padding-top: 77px;
         display: none;
+        overflow-y: auto;
         &.open {
           display: flex;              
           flex-direction: column;      
@@ -487,6 +488,7 @@ select{
         .mobile-menu-menu{ 
           border-bottom: 1px solid $clcc;
           width: 100%;
+          margin-bottom: 20px;
           li{
             width: 98%;
             vertical-align: middle;
@@ -511,12 +513,11 @@ select{
         }
         .logout{
           position: static;
-          margin: 0 auto;
+          margin: 10px auto;
           margin-top: auto;
-          bottom:1%;
           background:$pointred;
           color:$clwhite;
-          height: 50px;
+          min-height: 50px;
           border: none;
           width: calc(100% - 20px);
           border-radius: 10px;
@@ -980,6 +981,7 @@ footer{
         right:5%;
         background: $point;
         width: 20px; height:20px;
+        border-radius: 50%;
         button{
           color:transparent;
           background: transparent;

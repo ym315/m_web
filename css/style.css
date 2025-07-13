@@ -579,6 +579,7 @@ select {
           box-shadow: none;
   padding-top: 77px;
   display: none;
+  overflow-y: auto;
 }
 
 .head .mobile-menu.open {
@@ -770,6 +771,7 @@ select {
 .head .mobile-menu .mobile-menu-menu {
   border-bottom: 1px solid #ccc;
   width: 100%;
+  margin-bottom: 20px;
 }
 
 .head .mobile-menu .mobile-menu-menu li {
@@ -821,12 +823,11 @@ select {
 
 .head .mobile-menu .logout {
   position: static;
-  margin: 0 auto;
+  margin: 10px auto;
   margin-top: auto;
-  bottom: 1%;
   background: #E50012;
   color: #fff;
-  height: 50px;
+  min-height: 50px;
   border: none;
   width: calc(100% - 20px);
   border-radius: 10px;
@@ -1666,6 +1667,7 @@ footer ul li:nth-of-type(4).on i {
   background: #2799F9;
   width: 20px;
   height: 20px;
+  border-radius: 50%;
 }
 
 .search-table .table-top i button {
