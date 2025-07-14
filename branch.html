@@ -46,7 +46,7 @@
                         <button type="button">1주일</button>
                         <button type="button">1개월</button>
                     </div>
-                    <div>
+                    <div class="date3">
                         <input type="date" class="day-date">
                         <span class="day-date-dash">~</span>
                         <input type="date" class="day-date">
@@ -155,9 +155,22 @@
     
 <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
 <script>
+   $(function () {
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    const mm = String(today.getMonth() + 1).padStart(2, '0');
+    const dd = String(today.getDate()).padStart(2, '0');
+    const formattedToday = `${yyyy}-${mm}-${dd}`;
+
+    // Safari 대응
+    setTimeout(() => {
+      $('.day-date').each(function () {
+        $(this).val(formattedToday);
+      });
+    }, 100); // 100~200ms
+  });
 
 </script>
-
 </body>
 
 </html>

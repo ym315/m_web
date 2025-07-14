@@ -879,6 +879,9 @@ footer{
     width: 100%;;
     height:35px;
     text-align: center;
+    &:nth-of-type(n+2){
+      margin-top: 10px;
+    }
   }
   .search-date-3set{
     //공용
@@ -910,6 +913,10 @@ footer{
       }
     }
   
+  }
+  .search-item{
+    width: 100%;
+    height: 35px;
   }
 }
 .check-summary{
@@ -974,15 +981,19 @@ footer{
         width:180px;
         height:35px;
         border: 1px solid $clcc;
-        text-align: center;
+        text-align: left;
         border-radius: 5px;
+        padding-left: 10px;
       }
       i{
         position: absolute;
-        right:5%;
+        right:4%;
         background: $point;
-        width: 20px; height:20px;
-        border-radius: 50%;
+        width: 30px; height:25px;
+        border-radius: 10px;
+        background-image: url(../img/icon_set.png);            
+        background-repeat: no-repeat;
+        background-position: -119px -1px;
         button{
           color:transparent;
           background: transparent;
