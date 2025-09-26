@@ -296,8 +296,10 @@ select {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  flex-direction: column;
 }
 .login h2 {
+  width: 100%;
   font-size: 25px;
   font-weight: 600;
 }
@@ -714,6 +716,8 @@ footer {
   bottom: 0;
   border-top: 1px solid #eee;
   background: #fff;
+  /*~~~~~~~~~~~~~조정~~~~~~~~~~~~~*/
+  display: none;
 }
 footer ul {
   display: flex;
