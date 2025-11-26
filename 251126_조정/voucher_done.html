@@ -25,33 +25,18 @@
 <body>
     <header></header>
     <div class="page-wrapper">
-        <main>     
-            <div class="popup-wrap open">
-                <div class="overlay"></div>
-                <div class="popup">
-                    <div class="popup-txt">
-                    <i class="success"></i>
-                    <!-- <i class="fail"></i> -->
-                    <p>금액권 <span>15,000</span>원이<br/>
-                        사용되었습니다.</p>
-                    </div>   
-                    <div class="popup-btn">
-                        <button type="button" class="btn popup-ok">확인</button>
-                        <button type="button" class="popup-cancel">취소</button>
-                    </div>             
-                </div>
-            </div>   
-            <!--251126 조정-->   
+        <main class="">
+            <!--251126 조정-->
             <article>
                 <h2 class="h2-title"><a href="javascript:history.back()">< 쿠폰 조회</a></h2>
             </article>
             <!--251126 조정-->
             <article class="voucher">
                 <section class="voucher-content">
-                     <img class="voucher-thum" src="img/gift_vou1.png" alt="product-thumnail">
+                    <img class="voucher-thum" src="https://image.gift-n.net/mall/goods/0000044481.jpg" alt="product-thumnail">
                     <div class="voucher-title">
-                        <p>[기프트레터] 1만원권</p>
-                        <img src="img/logo_280.jpg" alt="brand-logo">
+                        <p>[하이디라오] 1만원권</p>
+                        <img src="https://image.gift-n.net/brand/372.jpg" alt="brand-logo">
                     </div>
                     <ul class="voucher-info">
                         <li>
@@ -60,7 +45,7 @@
                         </li>
                         <li>
                             <span>상품명</span>
-                            <span>[기프트레터] 1만원권</span>
+                            <span>[하이디라오] 1만원권</span>
                         </li>
                         <li>
                             <span>쿠폰상태</span>
@@ -71,18 +56,10 @@
                             <span>2025-12-31</span>
                         </li>            
                         <li class="boucher-balance">
-                            <p>현재잔액 : <span>8,000</span></p>
+                            <p>현재잔액 : <span>0</span></p>
                         </li>        
                     </ul>                
                 </section>            
-            </article>
-            <article class="voucher-price">
-                <h3 class="h3-title">사용 금액 입력</h3>
-                <input type="text" placeholder="사용 금액 숫자를 입력하세요">       
-                <div class="btn-2set">
-                    <button type="button" class="btn btn-white" onclick="location.href='voucher_done.html'">전액사용</button>
-                    <button type="button" class="btn" onclick="location.href='voucher_use.html'">선택 금액 사용</button>
-                </div>
             </article>
             <article class="voucher-list">
                 <h3 class="h3-title">사용 내역 보기</h3>
@@ -98,7 +75,8 @@
                                 <span class="ac-1"></span>
                                 <span class="label ac-2">쿠폰 상태</span>
                                 <span class="value ac-3">
-                                    <span class="done">사용 완료</span>                                
+                                    <span class="done">사용 완료</span>
+                                    
                                 </span>
                             </div>
                         </div>
@@ -107,9 +85,7 @@
                                 <span class="ac-1"></span>
                                 <span class="label ac-2">상태 변경</span>
                                 <span class="value ac-3">
-                                    <span class="cancel">
-                                        <a href="voucher.html">사용취소</a>
-                                    </span>
+                                    <span class="cancel"><a href="voucher_use.html">사용취소</a></span>
                                 </span>
                             </div>
                             <div class="line">
@@ -139,9 +115,9 @@
                             </div>
                             <div class="line">
                                 <span class="ac-1"></span>
-                                <span class="label ac-2">상태</span>
+                                <span class="label ac-2">쿠폰 상태</span>
                                 <span class="value ac-3">
-                                    <span class="cancel-done">취소 완료</span>
+                                    <span class="cancel-done">취소 완료 </span>
                                 </span>
                             </div>
                         </div>
@@ -166,10 +142,8 @@
                 </div>
             
             </article>
-
         </main>
-        <!--
-        <footer>            
+        <footer>
             <ul>
                 <li class="on">
                     <a href="cpsearch.html">
@@ -183,6 +157,7 @@
                         <p>정산 내역</p>
                     </a>
                 </li>
+                <!--
                 <li>
                     <a href="branch.html">
                         <i></i>
@@ -194,11 +169,12 @@
                         <i></i>
                         <p>통계 자료</p>
                     </a>                    
-                </li>
+                </li>-->
             </ul>
-        </footer>-->
+        </footer>
     </div>
     
+
     
 <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
 <script>
@@ -211,18 +187,6 @@ $(function () {
     const item = $(this).closest('.accordion-2line-item');
     item.toggleClass('open');
   });
-
-    if ($('.popup-wrap').is(':visible')) {
-    $('body').addClass('menu-open');}
-
-    $('.popup-btn button').on('click', function () {
-        $('.popup-wrap').remove(); 
-        $('body').removeClass('menu-open');
-    });
-
-  
-
-  
 });
 </script>
 

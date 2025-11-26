@@ -296,11 +296,13 @@ select {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  flex-direction: column;
+  flex-wrap: wrap;
 }
 .login h2 {
+  width: 100%;
   font-size: 25px;
   font-weight: 600;
-  width: 100%;
 }
 .login h2 img {
   width: 100%;
@@ -314,7 +316,6 @@ select {
   margin: 0 auto;
   padding: 0;
   margin-top: 20px;
-  text-align: center;
 }
 .login ul.login_user label {
   display: block;
@@ -414,7 +415,7 @@ select {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 40px;
+  width: 20px;
   height: 20px;
   cursor: pointer;
   transition: all 0.5s ease-in-out;
@@ -423,7 +424,6 @@ select {
 }
 .head .menu-btn .menu-btn-burger {
   width: 100%;
-  max-width: 22px;
   height: 2px;
   background: #555;
   transition: all 0.5s ease-in-out;
@@ -432,7 +432,6 @@ select {
   content: "";
   position: absolute;
   width: 100%;
-  max-width: 22px;
   height: 2px;
   background: #555;
   transition: all 0.5s ease-in-out;
@@ -512,7 +511,7 @@ select {
 .head .mobile-menu .mobile-menu-info li img {
   border-radius: 50%;
   width: 100%;
-  max-width: 80px;
+  max-width: 70px;
   vertical-align: middle;
   margin: 0 auto;
   border: 1px solid #ccc;
@@ -524,6 +523,7 @@ select {
 .head .mobile-menu .mobile-menu-info li.info p:first-child {
   font-weight: 600;
   font-size: 16px;
+  width: 90%;
 }
 .head .mobile-menu .mobile-menu-info li.info p:last-child {
   font-size: 0.8rem;
@@ -622,11 +622,11 @@ select {
   pointer-events: none;
 }
 .head .mobile-menu .mobile-menu-menu {
+  padding: 20px 0;
+  margin: 30px 0;
   border-top: 1px solid #ccc;
   border-bottom: 1px solid #ccc;
   width: 100%;
-  padding: 20px 0;
-  margin: 30px auto;
 }
 .head .mobile-menu .mobile-menu-menu li {
   width: 98%;
@@ -723,6 +723,7 @@ footer {
   bottom: 0;
   border-top: 1px solid #eee;
   background: #fff;
+  /*~~~~~~~~~~~~~조정~~~~~~~~~~~~~*/
 }
 footer ul {
   display: flex;
@@ -1296,12 +1297,12 @@ footer ul li:nth-of-type(4).on i {
   position: absolute;
   right: 4%;
   background: #2799F9;
-  width: 25px;
+  width: 30px;
   height: 25px;
-  border-radius: 50%;
+  border-radius: 10px;
   background-image: url(../img/icon_set.png);
   background-repeat: no-repeat;
-  background-position: -121px -1px;
+  background-position: -119px -1px;
 }
 .search-table .table-top i button {
   color: transparent;
@@ -1465,4 +1466,4 @@ footer ul li:nth-of-type(4).on i {
   border: none;
   background: #fff;
   height: 50px;
-}/*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style_251126backup.css.map */

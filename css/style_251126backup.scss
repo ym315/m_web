@@ -217,11 +217,12 @@ select{
   position: absolute;
   top:50%; left:50%;
   transform: translate(-50%,-50%);
-
+  flex-direction: column;
+  flex-wrap: wrap;
   h2{
+    width: 100%;
     font-size: 25px;
     font-weight: 600;
-    width: 100%;
     img{
       width:100%; 
       max-width: 150px; 
@@ -234,7 +235,6 @@ select{
   ul.login_user{
     @include layout(100%,0 auto,0);
     margin-top: 20px;
-    text-align: center;
     label{display: block}
     input, button{width:100%; height:50px;}
     li{
@@ -314,15 +314,13 @@ select{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 40px;
+    width: 20px;
     height: 20px;
     cursor: pointer;
-
     transition: all .5s ease-in-out;
     z-index: 99;
     .menu-btn-burger {
     width: 100%;
-    max-width: 22px;
     height: 2px;
     background:$cl55;
     // border-radius: 5px;
@@ -331,7 +329,6 @@ select{
         content: '';
         position: absolute;
         width: 100%;
-        max-width: 22px;
         height: 2px;
         background: $cl55;
         transition: all .5s ease-in-out;
@@ -400,7 +397,7 @@ select{
             img{
                   border-radius: 50%;
                   width: 100%;
-                  max-width: 80px;
+                  max-width: 70px;
                   vertical-align: middle;
                   margin: 0 auto;
                   border: 1px solid #ccc;                
@@ -409,14 +406,15 @@ select{
               margin-left: 10px;
               word-break: keep-all;
               p{
-                &:first-child{font-weight: 600; font-size: 16px;}
+                &:first-child{font-weight: 600; font-size: 16px; width:90%;}
                 &:last-child{font-size: .8rem;}
               }
             }
           }
         }//info
         .mobile-menu-push{
-          border-top: 1px solid $clcc;          
+          border-top: 1px solid $clcc;
+          // border-bottom: 1px solid $clcc;
           padding: 10px 0;
           margin: 30px 0 0 0;
           display: none;
@@ -491,11 +489,11 @@ select{
             }
         }//push
         .mobile-menu-menu{ 
+          padding: 20px 0;
+          margin: 30px 0;
           border-top: 1px solid $clcc;
           border-bottom: 1px solid $clcc;
           width: 100%;
-          padding:20px 0;
-          margin:30px auto;
           li{
             width: 98%;
             vertical-align: middle;
@@ -557,41 +555,44 @@ select{
 }
 
 
-footer{
+footer{  
   @include layout(100%,0 auto,0);
   max-width: 360px;
   position: static;
   bottom:0;
   border-top:1px solid $clee;
   background: $clwhite;
+  /*~~~~~~~~~~~~~조정~~~~~~~~~~~~~*/
+  // display: none;
   ul{
     @include display(flex,space-around,center);    
     li{
-      &.on{
-        color:$point;
-        font-weight: bold;
-        p{
+
+        &.on{
           color:$point;
           font-weight: bold;
+          p{
+            color:$point;
+            font-weight: bold;
+          }
         }
-      }
-      i{
-      background-image: url(../img/icon_set.png);            
-      background-repeat: no-repeat;
-      display: block;
-      margin: 0 auto;
-      width: 35px;
-      height: 35px;
-      margin-bottom:5px;
-      }      
-      &:nth-of-type(1){i{background-position: 0px -35px;}}
-      &:nth-of-type(1).on{i{background-position: -170px -35px;}}
-      &:nth-of-type(2){i{background-position: -38px -34px;}}
-      &:nth-of-type(2).on{i{background-position: -210px -35px;}}
-      &:nth-of-type(3){i{background-position: -84px -34px;}}
-      &:nth-of-type(3).on{i{background-position: -257px -35px;}}
-      &:nth-of-type(4){i{background-position: -133px -34px;}}
-      &:nth-of-type(4).on{i{background-position: -303px -35px;}}
+        i{
+        background-image: url(../img/icon_set.png);            
+        background-repeat: no-repeat;
+        display: block;
+        margin: 0 auto;
+        width: 35px;
+        height: 35px;
+        margin-bottom:5px;
+        }      
+        &:nth-of-type(1){i{background-position: 0px -35px;}}
+        &:nth-of-type(1).on{i{background-position: -170px -35px;}}
+        &:nth-of-type(2){i{background-position: -38px -34px;}}
+        &:nth-of-type(2).on{i{background-position: -210px -35px;}}
+        &:nth-of-type(3){i{background-position: -84px -34px;}}
+        &:nth-of-type(3).on{i{background-position: -257px -35px;}}
+        &:nth-of-type(4){i{background-position: -133px -34px;}}
+        &:nth-of-type(4).on{i{background-position: -303px -35px;}}
     }
   }
 }
@@ -1000,11 +1001,11 @@ footer{
         position: absolute;
         right:4%;
         background: $point;
-        width: 25px; height:25px;
-        border-radius: 50%;
+        width: 30px; height:25px;
+        border-radius: 10px;
         background-image: url(../img/icon_set.png);            
         background-repeat: no-repeat;
-        background-position: -121px -1px;
+        background-position: -119px -1px;
         button{
           color:transparent;
           background: transparent;

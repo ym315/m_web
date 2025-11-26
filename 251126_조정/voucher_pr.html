@@ -25,7 +25,7 @@
 <body>
     <header></header>
     <div class="page-wrapper">
-        <main class="">
+        <main class="">        
             <!--251126 조정-->
             <article>
                 <h2 class="h2-title"><a href="javascript:history.back()">< 쿠폰 조회</a></h2>
@@ -33,9 +33,9 @@
             <!--251126 조정-->
             <article class="voucher">
                 <section class="voucher-content">
-                    <img class="voucher-thum" src="img/gift_vou1.png" alt="product-thumnail">
+                    <img class="voucher-thum" src="img/gift_pr.jpg" alt="product-thumnail">
                     <div class="voucher-title">
-                        <p>[기프트레터] 1만원권</p>
+                        <p>[기프트레터] 아메리카노 </p>
                         <img src="img/logo_280.jpg" alt="brand-logo">
                     </div>
                     <ul class="voucher-info">
@@ -45,7 +45,7 @@
                         </li>
                         <li>
                             <span>상품명</span>
-                            <span>[기프트레터] 1만원권</span>
+                            <span>[기프트레터] 아메리카노</span>
                         </li>
                         <li>
                             <span>쿠폰상태</span>
@@ -54,25 +54,14 @@
                         <li>
                             <span>유효기간</span>
                             <span>2025-12-31</span>
-                        </li>            
-                        <li class="boucher-balance">
-                            <p>현재잔액 : <span>10,000</span></p>
-                        </li>        
+                        </li>               
                     </ul>                
                 </section>            
             </article>
-            <article class="voucher-price">
-                <h3 class="h3-title">사용 금액 입력</h3>
-                <input type="text" placeholder="사용 금액 숫자를 입력하세요">       
-                <div class="btn-2set">
-                    <button type="button" class="btn btn-white" onclick="location.href='voucher_done.html'">전액사용</button>
-                    <button type="button" class="btn" onclick="location.href='voucher_use.html'">선택 금액 사용</button>
-                </div>
-            </article>
+            <button type="button" class="btn" onclick="location.href='voucher_pr_use.html'">쿠폰 사용</button>
 
         </main>
-        <!--
-        <footer>            
+        <footer>
             <ul>
                 <li class="on">
                     <a href="cpsearch.html">
@@ -85,8 +74,8 @@
                         <i></i>
                         <p>정산 내역</p>
                     </a>
-                </li>            
-                <li>
+                </li>
+                <!-- <li>
                     <a href="branch.html">
                         <i></i>
                         <p>지점 로그</p>
@@ -97,9 +86,9 @@
                         <i></i>
                         <p>통계 자료</p>
                     </a>                    
-                </li>               
+                </li> -->
             </ul>
-        </footer>-->
+        </footer>
     </div>
 
 
@@ -112,7 +101,7 @@ $(document).ready(function () {
 
   // 클릭하면 열고 닫힘 (첫 번째 포함해서)
   $('.accordion-header').on('click', function () {
-    $(this).parent('.accordion-item').toggleClass('active');
+    $(this).parent('.accordion-item').toggle('active');
   });
 });
 </script>

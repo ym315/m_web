@@ -1,78 +1,253 @@
+
 <!doctype html>
-<html lang="en">
+<html lang="ko">
 <head>
-	<meta charset="utf-8">
-	<!--meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"-->
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
-	<meta name="viewport" content="target-densitydpi=device-dpi, user-scalable=0, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, width=device-width" />
-    <meta name="description" content="">
-	<meta name="author" content="">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="GiftLetter Pos">
+    <meta name="author" content="GiftLetter Inc">
 
-	<title>GiftLetter Mobile Admin</title>
+    <title>&#xB85C;&#xADF8;&#xC778; - GiftLetter Admin</title>
 
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    <link rel="stylesheet" href="/css/xeicon.css">
+    <link rel="stylesheet" href="/css/style.css">
 
-    <link rel="stylesheet" href="./css/style.css">
+    <script src="/lib/jquery.min.js"></script>
+    <script src="/lib/jquery-ui.js"></script>
+    <script src="/js/menu.js"></script>
+    <script src="/js/common.js"></script>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    
+    <script type="text/javascript">
+        function login() {
+            var id = $('#txt_Id').val();
+            var password = $('#txt_Pwd').val();
+            
+            if (!id || !password) {
+                showCommonFailedPopup('아이디와 비밀번호를 모두 입력해주세요.');
+                return;
+            }
+            
+            // 에러 메시지 영역 초기화
+            $('.error-message').remove();
+            
+            // AJAX로 로그인 처리
+            $.ajax({
+                url: '/',
+                type: 'POST',
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest'
+                },
+                data: {
+                    txt_Id: id,
+                    txt_Pwd: password
+                },
+                success: function(response) {                    
+                    if (response && response.success === true) {
+                        // 성공 시 리다이렉트
+                        window.location.href = '/Nauth/Index';
+                    } else {
+                        // 실패 시 에러 메시지 표시
+                        var errorMessage = response && response.message ? response.message : '로그인 실패하였습니다. 계정을 확인해 주세요.';
+                        var errorHtml = '<li><div class="error-message"><div class="alert alert-danger"><span>' + errorMessage + '</span></div></div></li>';
+                        $('.login_user li:last').before(errorHtml);
+                    }
+                },
+                error: function(xhr, status, error) {
+                    var errorMessage = '로그인 처리 중 오류가 발생했습니다.';
+                    
+                    // 서버에서 전달된 에러 메시지가 있는 경우 사용
+                    if (xhr.responseJSON && xhr.responseJSON.message) {
+                        errorMessage = xhr.responseJSON.message;
+                    } else if (xhr.responseText) {
+                        try {
+                            var response = JSON.parse(xhr.responseText);
+                            if (response.message) {
+                                errorMessage = response.message;
+                            }
+                        } catch (e) {
+                            // JSON 파싱 실패 시 기본 메시지 사용
+                        }
+                    }
+                    
+                    // 에러 메시지 영역에 에러 표시
+                    var errorHtml = '<li><div class="error-message"><div class="alert alert-danger"><span>' + errorMessage + '</span></div></div></li>';
+                    $('.login_user li:last').before(errorHtml);
+                }
+            });
+        }
+
+        $(document).ready(function() {
+            // Enter 키 이벤트 처리
+            $('#txt_Pwd').on('keypress', function(e) {
+                if (e.which === 13) {
+                    login();
+                }
+            });
+            
+            // 아이디 입력 필드에서도 Enter 키 처리
+            $('#txt_Id').on('keypress', function(e) {
+                if (e.which === 13) {
+                    $('#txt_Pwd').focus();
+                }
+            });
+        });
+    </script>
+
+
+    
+<link rel="stylesheet" href="/css/extra.css">
+<style>
+    .error-message {
+        margin-bottom: 15px;
+    }
+    
+    .alert {
+        padding: 10px 15px;
+        margin-bottom: 20px;
+        border: none;
+        border-radius: 4px;
+    }
+    
+    .alert-danger {
+        color: red;
+        background-color: transparent;
+        border-color: transparent;
+    }
+    
+    .alert span {
+        font-weight: normal;
+    }
+    
+    /* 모바일 키보드 대응 - 푸터 고정 */
+    .login_foot {
+        position: fixed !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        z-index: 1000 !important;
+        background-color: #fff !important;
+        border-top: 1px solid #e0e0e0 !important;
+    }
+    
+    /* 모바일에서 키보드가 나타날 때 body 스크롤 방지 */
+    @media (max-width: 768px) {
+        body {
+            position: fixed !important;
+            top:50%; left:50%;
+            transform:translate(-50%,-50%);
+            width: 100% !important;
+            height: 100% !important;
+            overflow: hidden !important;
+        }
+        
+        .login {
+            height: calc(100vh - 120px) !important;
+            overflow-y: auto !important;
+            padding: 0 20px 20px 20px !important;
+            max-width: calc(100vw - 40px) !important;
+        }
+        
+        .login ul.login_user {
+            padding: 0 5px !important;
+            text-align:center;
+        }
+        
+        .login ul.login_user input, .login ul.login_user button {
+            padding: 0 10px !important;
+        }
+    }
+</style>
 
 </head>
 
-<body>
-    <main>
-        <article class="login"> 
-            <h2><img src="./img/gift_logo.png">ADMIN</h2>
-            <ul class="login_user">
-                <li>
-                    <label for="id">아이디</label>
-                    <input id="id" name="id" type="text">
-                </li>
-                <li>
-                    <label for="password">비밀번호</label>
-                    <input id="password" name="password" type="text">
-                </li>
-                <li>
-                    <button class="btn" onclick="location.href='cpsearch.html';">로그인</button>
-                </li>
-            </ul>
-            <ul class="login_info">
-                <li>
-                    <i></i>
-                    <div>
-                        <p class="title">TEL</p>
-                        <p>02-6242-0513</p>
-                    </div>                    
-                </li>
-                <li>
-                    <i></i>
-                    <div>
-                        <p class="title">FAX</p>
-                        <p>02-6971-9513</p>
-                    </div>                    
-                </li>
-            </ul>
-        </article>
 
-        <footer class="login_foot">
-            <div>        
-                <p>
-                    서울시 강남구 언주로 637, 싸이칸빌딩 14F 기프트레터 
-                    <br/>
-                    Copyright (c) 2013 GIFT N Co.,LTD. All Rights Reserved.
-                </p>
+<body class="login-page">
+    
+
+ 
+
+<article class="login"> 
+    <h2>
+        <img src="/img/gift_logo.png">
+        <span>ADMIN</span>
+    </h2>
+    <form id="loginForm" method="post" style="width: 100%;">
+    <ul class="login_user">
+        <li>
+            <label for="txt_Id">아이디</label>
+            <input id="txt_Id" name="txt_Id" type="text" required>
+        </li>
+        <li>
+            <label for="txt_Pwd" name="txt_Pwd">비밀번호</label>
+            <input id="txt_Pwd" name="txt_Pwd" type="password" required>
+        </li>
+        
+        <!-- 에러 메시지 영역 -->
+            
+            <li>
+                <button type="button" class="btn"  onclick="location.href='cpsearch.html';">로그인</button>
+            </li>
+    </ul>
+    <input name="__RequestVerificationToken" type="hidden" value="CfDJ8F-1WeFS-aNGuDLslHb7Cjq5OIYaPw6LJYvcG8GJg0IxCotSht3NyoCOLbkMygzOgyrRUx3NZyu9WH_CBbTNWnwIDHq71-U6DAFJq_fqbXwJrJ-iKAm7TkMLQsHn-nH33obDbTC7qMqVOPvI9vbp2lM" /></form>
+    <ul class="login_info">
+        <li>
+            <i></i>
+            <div>
+                <p class="title">TEL</p>
+                <p>02-6242-0513</p>
+            </div>                    
+        </li>
+        <li>
+            <i></i>
+            <div>
+                <p class="title">FAX</p>
+                <p>02-6971-9513</p>
+            </div>                    
+        </li>
+    </ul>
+</article>
+<footer class="login_foot">
+    <div>        
+        <p>
+            서울시 강남구 언주로 637, 싸이칸빌딩 8F 기프트레터 
+            <br/>
+            Copyright (c) 2013 GIFT N Co.,LTD. All Rights Reserved.
+        </p>
+    </div>
+
+</footer>
+
+ 
+    <!-- 공통 성공/실패 메시지 팝업 -->
+    <div class="common-popup common-popup-success" style="display: none;">
+        <div class="common-popup-content">
+            <div class="common-popup-success-icon">
+                <div class="common-popup-icon"><i></i></div>
+                <div class="common-popup-text">
+                    <p></p>
+                    <button class="btn common-popup-close">확인</button>
+                    <button class="btn common-popup-cancel" style="display: none; background-color: #b1b6bb; color: #fff;">취소</button>
+                </div>
             </div>
+        </div>
+    </div>
 
-        </footer>
-    </main>
+    <div class="common-popup common-popup-failed" style="display: none;">
+        <div class="common-popup-content">
+            <div class="common-popup-failed-icon">
+                <div class="common-popup-icon"><i></i></div>
+                <div class="common-popup-text">
+                    <p></p>
+                    <button class="btn common-popup-close">확인</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     
-  <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
 
-  <script type="text/javascript">
-    $(document).on('ready', function() {
-    });
-</script>
+    
+
 </body>
-
-</html>
+</html> 

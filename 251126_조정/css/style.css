@@ -314,7 +314,6 @@ select {
   margin: 0 auto;
   padding: 0;
   margin-top: 20px;
-  text-align: center;
 }
 .login ul.login_user label {
   display: block;
@@ -414,7 +413,7 @@ select {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 40px;
+  width: 20px;
   height: 20px;
   cursor: pointer;
   transition: all 0.5s ease-in-out;
@@ -423,7 +422,6 @@ select {
 }
 .head .menu-btn .menu-btn-burger {
   width: 100%;
-  max-width: 22px;
   height: 2px;
   background: #555;
   transition: all 0.5s ease-in-out;
@@ -432,7 +430,6 @@ select {
   content: "";
   position: absolute;
   width: 100%;
-  max-width: 22px;
   height: 2px;
   background: #555;
   transition: all 0.5s ease-in-out;
