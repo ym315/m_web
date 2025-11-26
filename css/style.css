@@ -723,11 +723,10 @@ footer {
   border-top: 1px solid #eee;
   background: #fff;
   /*~~~~~~~~~~~~~조정~~~~~~~~~~~~~*/
-  display: none;
 }
 footer ul {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   display: -moz-flex;
   display: -o-flex;
