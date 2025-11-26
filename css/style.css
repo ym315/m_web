@@ -510,7 +510,7 @@ select {
 .head .mobile-menu .mobile-menu-info li img {
   border-radius: 50%;
   width: 100%;
-  max-width: 80px;
+  max-width: 70px;
   vertical-align: middle;
   margin: 0 auto;
   border: 1px solid #ccc;
@@ -522,15 +522,16 @@ select {
 .head .mobile-menu .mobile-menu-info li.info p:first-child {
   font-weight: 600;
   font-size: 16px;
+  width: 90%;
 }
 .head .mobile-menu .mobile-menu-info li.info p:last-child {
   font-size: 0.8rem;
 }
 .head .mobile-menu .mobile-menu-push {
   border-top: 1px solid #ccc;
-  border-bottom: 1px solid #ccc;
   padding: 10px 0;
-  margin: 30px 0;
+  margin: 30px 0 0 0;
+  display: none;
 }
 .head .mobile-menu .mobile-menu-push h3 {
   color: #000;
@@ -620,9 +621,11 @@ select {
   pointer-events: none;
 }
 .head .mobile-menu .mobile-menu-menu {
+  padding: 20px 0;
+  margin: 30px 0;
+  border-top: 1px solid #ccc;
   border-bottom: 1px solid #ccc;
   width: 100%;
-  margin-bottom: 20px;
 }
 .head .mobile-menu .mobile-menu-menu li {
   width: 98%;
@@ -657,6 +660,9 @@ select {
 }
 .head .mobile-menu .mobile-menu-menu li:nth-of-type(4) i {
   background-position: -133px -34px;
+}
+.head .mobile-menu .mobile-menu-menu li:last-child {
+  margin-bottom: 0;
 }
 .head .mobile-menu .logout {
   position: static;
@@ -1190,6 +1196,7 @@ footer ul li:nth-of-type(4).on i {
 .check-summary {
   background: #f6f6f6;
   margin: 20px auto;
+  display: none;
 }
 .check-summary > ul li {
   display: flex;
