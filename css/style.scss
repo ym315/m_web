@@ -151,15 +151,13 @@ main{
 .none{display: none;}
 a{color:$cl55;}
 
-input[type=text]{
+input[type=text], input[type=password]{
   background: $clwhite;
   border:1px #ccc solid;  
   border-radius: 5px;;
   height:30px;
   font-size: 16px;
-
 }
-
 
 .search-normal{
   border: $clcc;
@@ -317,36 +315,35 @@ select{
     width: 40px;
     height: 20px;
     cursor: pointer;
-
     transition: all .5s ease-in-out;
     z-index: 99;
-    .menu-btn-burger {
-    width: 100%;
-    max-width: 22px;
-    height: 2px;
-    background:$cl55;
-    // border-radius: 5px;
-    transition: all .5s ease-in-out;
-      &:before, &:after{
-        content: '';
-        position: absolute;
-        width: 100%;
-        max-width: 22px;
-        height: 2px;
-        background: $cl55;
-        transition: all .5s ease-in-out;
-      }
-      &:before{transform: translateY(-8px);}
-      &:after{transform: translateY(8px);}
-      }
-    /* ANIMATION */
-      &.open .menu-btn-burger {
-        transform: translateX(-50px);
-        background: transparent;
-        box-shadow: none;
-      &:before{transform: rotate(45deg) translate(35px, -35px);}
-      &:after{transform: rotate(-45deg) translate(35px, 35px);}
-    }
+      .menu-btn-burger {
+      width: 100%;
+      max-width: 20px;
+      height: 2px;
+      background:$cl55;
+      // border-radius: 5px;
+      transition: all .5s ease-in-out;
+        &:before, &:after{
+          content: '';
+          position: absolute;
+          width: 100%;
+          max-width: 20px;
+          height: 2px;
+          background: $cl55;
+          transition: all .5s ease-in-out;
+        }
+        &:before{transform: translateY(-8px);}
+        &:after{transform: translateY(8px);}
+        }
+      /* ANIMATION */
+        &.open .menu-btn-burger {
+          transform: translateX(-50px);
+          background: transparent;
+          box-shadow: none;
+        &:before{transform: rotate(45deg) translate(35px, -35px);}
+        &:after{transform: rotate(-45deg) translate(35px, 35px);}
+        }
     }
   .overlay {
       position: fixed;
@@ -777,7 +774,7 @@ footer{
       border-bottom: 1px solid #ccc;
       &:last-child{border-bottom:none;}   
       span{
-        &.ac-1{flex-basis: 20px;}
+        &.ac-1{flex-basis: 20px; font-size: .7rem;}
         &.ac-2{flex-basis: calc(40% - 40px);}
         &.ac-3{flex-basis: 60%; font-weight: 500;}
       }
@@ -844,7 +841,7 @@ footer{
         @include display(flex,space-between,center);        
         padding:10px 0;
         span{
-          &.ac-1{flex-basis: 20px;}
+          &.ac-1{flex-basis: 20px; font-size: .7rem;}
           &.ac-2{flex-basis: calc(40% - 40px);}
           &.ac-3{flex-basis: 60%; font-weight: 500;}        
         }
